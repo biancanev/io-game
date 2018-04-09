@@ -22,6 +22,8 @@ var myGamePiece;
 
 function startGame() {
     myGameArea.start();
+    alert('Error Loading sprites. Basic HTML sprites have been loaded.');
+    alert('Error connecting to servers. Online connection disabled. Refresh to try to reenable');
     myGamePiece = new component(30, 30, "red", 10, 120);
 }
 
