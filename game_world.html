@@ -16,7 +16,7 @@ var myGamePiece;
 var myMusic;
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
-    myMusic = new sound("gametheme.mp3");
+    myMusic = new sound("/starcraft/starcraft_music_start.mp3");
     myMusic.play();
     myGameArea.start();
 }
