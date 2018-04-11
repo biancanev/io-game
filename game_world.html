@@ -17,6 +17,10 @@ var myGamePiece;
 var ar=new Array(33,34,35,36,37,38,39,40);
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
+    alert("Sprite Error: Unable to load compound sprites. Using basic sprites.");
+    alert("Server Error: Unable to connect to World Server. Tried [5] times.");
+    alert("Server Error: Player Server responded with {status: idle; err-msg: GTA not updated}");
+    alert("JavaScript Error: Unable to get property {Username} from source {index}");
     myGameArea.start();
 }
 function preventDefaultForScrollKeys(e) {
