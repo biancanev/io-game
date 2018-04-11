@@ -15,9 +15,12 @@ canvas {
 <script>
 //Begin the game
 var myGamePiece;
+var myScore;
+var hp = 100;
 var ar=new Array(33,34,35,36,37,38,39,40);
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
+    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     alert("Sprite Error: Unable to load compound sprites. Using basic sprites.");
     alert("Server Error: Unable to connect to World Server. Tried [5] times.");
     alert("Server Error: Player Server responded with {status: idle; err-msg: GTA not updated}");
@@ -74,6 +77,14 @@ function component(width, height, color, x, y, type) {
         ctx.fillStyle = color;
         ctx.fillRect(this.width / -2, this.height / -2, this.width, this.height);
         ctx.restore();    
+        if (this.type == "text") {
+          ctx.font = this.width + " " + this.height;
+          ctx.fillStyle = color;
+          ctx.fillText(this.text, this.x, this.y);
+        } else {
+          ctx.fillStyle = color;
+          ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
     this.newPos = function() {
         this.angle += this.moveAngle * Math.PI / 180;
@@ -90,6 +101,7 @@ function updateGameArea() {
     if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.moveAngle = 2; }
     if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speed= 2; }
     if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speed= -2; }
+    myScore.text = "HP: " + hp;
     myGamePiece.newPos();
     myGamePiece.update();
 }
